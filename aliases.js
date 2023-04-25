@@ -6,5 +6,7 @@ const createSourceAlias = (dirName) => path.resolve(__dirname, `${PREFIX}/${dirN
 
 module.exports = {
     '@components': createSourceAlias('components'),
-    '@api': createSourceAlias('api')
+    '@api': createSourceAlias('api'),
+    '@hooks': createSourceAlias('hooks'),
+    '@utils': createSourceAlias('utils')
 }

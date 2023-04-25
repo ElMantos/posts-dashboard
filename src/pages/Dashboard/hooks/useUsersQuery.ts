@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { keys, getPosts } from "@api/posts";
+import { keys, getUsers } from "@api/users";
 
 interface UserPostsArgs {
-  title: string;
+  name: string;
 }
 
 // Made as seperate hook to allow easier formatting/optimistic updates/etc if needed in the future
-const usePosts = ({ title }: UserPostsArgs) => {
-  const { data, isLoading, isError } = useQuery(keys.getPosts(title), () =>
-    getPosts({ title })
+const usePosts = ({ name }: UserPostsArgs) => {
+  const { data, isLoading, isError } = useQuery(keys.getUsers({ name }), () =>
+    getUsers({ name })
   );
 
   return { data, isLoading, isError };

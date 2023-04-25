@@ -2,7 +2,9 @@
     "compilerOptions": {
         "paths": {
             "@components*": ["./src/components", "./src/components/*"],
-            "@api*": ["./src/api", "./src/api/*"]
+            "@api*": ["./src/api", "./src/api/*"],
+            "@hooks*": ["./src/hooks", "./src/hooks/*"],
+            "@utils*": ["./src/utils", "./src/utils/*"]
         }
     }
 }

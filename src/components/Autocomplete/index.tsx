@@ -15,6 +15,11 @@ const Input = styled.input`
   transition: border-color 0.2s;
 `;
 
+const List = styled.ul`
+    max-width: 500px,
+    background-color: gray,
+`
+
 const Autocomplete: FC<AutocompleteProps> = ({
   options,
   value,
@@ -23,7 +28,6 @@ const Autocomplete: FC<AutocompleteProps> = ({
   inputValue,
   onInputValueChange
 }) => {
-  console.log("Autocomplete");
 
   return (
     <div>
