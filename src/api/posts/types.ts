@@ -12,3 +12,9 @@ export type GetPostsResponse = Response<Post[]>;
 export interface GetPostsRequest {
   userId?: number;
 }
+
+export interface GetPostRequest {
+  postId: number;
+}
+
+export type GetPostResponse = Response<Post>;

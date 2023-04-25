@@ -3,12 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { keys, getPosts } from "@api/posts";
 import { extractAPIData } from "@utils";
 
-interface UserPostsArgs {
+interface UseGetPostsQueryArgs {
   userId?: number;
 }
 
-// Made as seperate hook to allow easier formatting/optimistic updates/etc if needed in the future
-const usePosts = ({ userId }: UserPostsArgs) => {
+const usePostsQuery = ({ userId }: UseGetPostsQueryArgs) => {
   const { data, isLoading, isError } = useQuery(keys.getPosts({ userId }), () =>
     getPosts({ userId })
   );
@@ -16,4 +15,4 @@ const usePosts = ({ userId }: UserPostsArgs) => {
   return { data: extractAPIData(data), isLoading, isError };
 };
 
-export default usePosts;
+export default usePostsQuery;

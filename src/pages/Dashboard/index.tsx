@@ -3,8 +3,10 @@ import styled from "styled-components";
 
 import { Container, Autocomplete, PageHeader, Spinner } from "@components";
 import { useDebouncedValue } from "@hooks";
+import { Post as IPost } from "@api/posts/types";
 
 import Post from "./components/Post";
+import PostModal from './components/PostModal';
 
 import usePostsQuery from "./hooks/usePostsQuery";
 import useUsersQuery from "./hooks/useUsersQuery";
@@ -22,6 +24,7 @@ const SpinnerContainer = styled.div`
 
 const Dashboard: FC = () => {
   const [userName, setUserName] = useState("");
+  const [selectedPost, setSelectedPost] = useState<undefined | IPost>(undefined);
   const [selectedOption, setSelectedOption] = useState<
     { value: string | number; label: string } | undefined
   >();
@@ -38,7 +41,6 @@ const Dashboard: FC = () => {
   const { data: users, isError: isUsersError } = useUsersQuery({
     name: debouncedUsername,
   });
-  console.log({ users: users });
 
   const renderPosts = () => {
     if (isPostsLoading) {
@@ -49,13 +51,20 @@ const Dashboard: FC = () => {
       );
     }
 
-    (posts || []).map(({ title, userId, body, id }) => (
-      <Post key={id} title={title} userId={userId} body={body} />
+    return (posts || []).map(({ title, body, id }) => (
+      <Post key={id} title={title} onClick={() => {
+        const post = posts?.find(({id: postId}) => postId === id);
+        if(!post) return ;
+        setSelectedPost(post);
+      }} body={body} />
     ));
   };
 
-  return (
-    <Container>
+  return (<>
+    {selectedPost && (
+      <PostModal post={selectedPost} onClose={() => setSelectedPost(undefined)} />
+    )}
+  <Container>
       <Autocomplete
         inputValue={userName}
         onInputValueChange={(e) => setUserName(e.target.value)}
@@ -69,7 +78,7 @@ const Dashboard: FC = () => {
       <PageHeader>Posts</PageHeader>
 
       {renderPosts()}
-    </Container>
+    </Container></>
   );
 };
 

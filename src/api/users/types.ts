@@ -11,3 +11,9 @@ export interface User {
 }
 
 export type GetUsersResponse = Response<User[]>;
+
+export interface GetUserRequest {
+  userId: number;
+}
+
+export type GetUserResponse = Response<User>;

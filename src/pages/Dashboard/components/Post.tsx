@@ -1,32 +1,31 @@
 import { FC } from "react";
 import styled from "styled-components";
 
+import PostTitle from "./PostTitle";
+import PostBody from "./PostBody";
+
 interface PostProps {
   title: string;
   body: string;
-  userId: number;
+  onClick: () => void;
 }
 
 const Container = styled.div`
   width: 100%;
-  padding: 32px;
+  padding: 0px 32px;
+  border: 1px solid #c0d6fa;
+  background-color: #e6efff;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  cursor: pointer;
 `;
 
-const Title = styled.h2`
-  font-size: 24px;
-  font-weight: 600;
-`;
-
-const Body = styled.p`
-  font-size: 16px;
-  font-weight: 500;
-`;
-
-const Post: FC<PostProps> = ({ title, body, userId }) => {
+const Post: FC<PostProps> = ({ title, body, onClick }) => {
   return (
-    <Container>
-      <Title>{title}</Title>
-      <Body>{body}</Body>
+    // It is not a good practice to have interactive events on non-interactive elements, probably should refactor :) 
+    <Container onClick={onClick}>
+      <PostTitle>{title}</PostTitle>
+      <PostBody>{body}</PostBody>
     </Container>
   );
 };
