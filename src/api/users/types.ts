@@ -1,10 +1,13 @@
+import { Response } from "../types";
 export interface GetUsersRequest {
-  name: string;
+  name?: string;
 }
 
-export interface GetUsersResponse {
+export interface User {
   id: number;
   name: string;
   username: string;
   email: string;
 }
+
+export type GetUsersResponse = Response<User[]>;

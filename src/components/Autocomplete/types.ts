@@ -1,7 +1,6 @@
 import { ChangeEvent } from "react";
 
-// May want to add more (e.g. number) in the future
-type OptionValue = string;
+type OptionValue = string | number;
 
 export interface Option {
   value: OptionValue;
@@ -11,8 +10,8 @@ export interface Option {
 export interface AutocompleteProps {
   options: Option[];
   placeholder?: string;
-  value: OptionValue;
-  onChange: (value: OptionValue) => void;
+  value: Option | undefined;
+  onChange: (value: Option | undefined) => void;
   inputValue: string;
   onInputValueChange: (value: ChangeEvent<HTMLInputElement>) => void;
 }

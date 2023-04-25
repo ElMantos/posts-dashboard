@@ -1,6 +1,6 @@
-import { UseQueryResult } from "@tanstack/react-query";
+import { Response } from "@api/types";
 
-const extracAPIData = <T>(data: UseQueryResult<T>) => {
+const extracAPIData = <T>(data: Response<T> | undefined) => {
   return data?.data;
 };
 

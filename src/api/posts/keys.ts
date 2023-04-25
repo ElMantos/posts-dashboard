@@ -1,7 +1,7 @@
 import { GetPostsRequest } from "./types";
 
 const keys = {
-  getPosts: ({ title }: GetPostsRequest) => ["posts", title],
+  getPosts: ({ userId }: GetPostsRequest) => ["posts", userId],
 };
 
 export default keys;

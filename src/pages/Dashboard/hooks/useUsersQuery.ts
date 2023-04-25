@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { keys, getUsers } from "@api/users";
+import { extractAPIData } from "@utils";
 
 interface UserPostsArgs {
   name: string;
@@ -12,7 +13,7 @@ const usePosts = ({ name }: UserPostsArgs) => {
     getUsers({ name })
   );
 
-  return { data, isLoading, isError };
+  return { data: extractAPIData(data), isLoading, isError };
 };
 
 export default usePosts;

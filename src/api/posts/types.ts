@@ -1,12 +1,14 @@
+import { Response } from "../types";
+
 export interface Post {
   body: string;
   id: number;
   title: string;
-  userId: string;
+  userId: number;
 }
 
-export type GetPostsResponse = Post[];
+export type GetPostsResponse = Response<Post[]>;
 
 export interface GetPostsRequest {
-  title: string;
+  userId?: number;
 }
