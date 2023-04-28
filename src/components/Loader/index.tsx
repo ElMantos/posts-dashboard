@@ -1,7 +1,5 @@
-import {FC} from 'react';
+import { FC } from "react";
 
-
-const Loader: FC = () => <div>Loading...</div>
-
+const Loader: FC = () => <div>Loading...</div>;
 
 export default Loader;

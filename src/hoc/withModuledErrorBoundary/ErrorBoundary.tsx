@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
 
-import {Error} from '@components';
+import { Error } from "@components";
 
 interface Props {
   children?: ReactNode;
@@ -28,12 +28,13 @@ class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
-      return <Error text="Ooops, looks like something went wrong on our side :( Luckily this error boundary cought the error and the rest of the application still works as intended :)" />;
+      return (
+        <Error text="Ooops, looks like something went wrong on our side :( Luckily this error boundary cought the error and the rest of the application still works as intended :)" />
+      );
     }
 
     return this.props.children;
   }
 }
-
 
 export default ErrorBoundary;

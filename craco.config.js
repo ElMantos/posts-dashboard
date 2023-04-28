@@ -1,7 +1,7 @@
-const aliases = require('./aliases');
+const aliases = require("./aliases");
 
 module.exports = {
   webpack: {
-    alias: aliases
+    alias: aliases,
   },
 };

@@ -1,11 +1,11 @@
 {
-    "compilerOptions": {
-        "paths": {
-            "@components*": ["./src/components", "./src/components/*"],
-            "@api*": ["./src/api", "./src/api/*"],
-            "@hooks*": ["./src/hooks", "./src/hooks/*"],
-            "@utils*": ["./src/utils", "./src/utils/*"],
-            "@hoc*": ["./src/hoc", "./src/hoc/*"]
-        }
+  "compilerOptions": {
+    "paths": {
+      "@components*": ["./src/components", "./src/components/*"],
+      "@api*": ["./src/api", "./src/api/*"],
+      "@hooks*": ["./src/hooks", "./src/hooks/*"],
+      "@utils*": ["./src/utils", "./src/utils/*"],
+      "@hoc*": ["./src/hoc", "./src/hoc/*"]
     }
+  }
 }

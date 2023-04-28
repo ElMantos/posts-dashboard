@@ -70,7 +70,7 @@ const Dashboard: FC = () => {
   const [selectedPost, setSelectedPost] = useState<undefined | IPost>(
     undefined
   );
-  const [shouldSimulateError, setShouldSimulateError] = useState(false)
+  const [shouldSimulateError, setShouldSimulateError] = useState(false);
   const [selectedOption, setSelectedOption] = useState<
     { value: string | number; label: string } | undefined
   >();
@@ -121,13 +121,15 @@ const Dashboard: FC = () => {
     );
   }
 
-  if(shouldSimulateError){
-    throw new Error('aaahhhh shucks...')
+  if (shouldSimulateError) {
+    throw new Error("aaahhhh shucks...");
   }
 
   return (
     <>
-    <ThrowErrorButton onClick={() => setShouldSimulateError(true)}>Click me to simulate error and see how ErrorBoundary component works :)</ThrowErrorButton>
+      <ThrowErrorButton onClick={() => setShouldSimulateError(true)}>
+        Click me to simulate error and see how ErrorBoundary component works :)
+      </ThrowErrorButton>
       {selectedPost && (
         <PostModal
           post={selectedPost}

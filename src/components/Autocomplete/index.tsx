@@ -49,9 +49,11 @@ const Autocomplete: FC<AutocompleteProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <OutsideClickHandler onOutsideClick={() => {
-      setIsFocused(false);
-    }}>
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        setIsFocused(false);
+      }}
+    >
       <Container>
         <Input
           onFocus={() => setIsFocused(true)}
@@ -73,7 +75,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
               <ListItem
                 key={index}
                 onClick={() => {
-                  onChange({value, label});
+                  onChange({ value, label });
                   setIsFocused(false);
                 }}
               >

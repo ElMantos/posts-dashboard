@@ -1,13 +1,14 @@
-const path = require('path');
+const path = require("path");
 
-const PREFIX = 'src';
+const PREFIX = "src";
 
-const createSourceAlias = (dirName) => path.resolve(__dirname, `${PREFIX}/${dirName}`);
+const createSourceAlias = (dirName) =>
+  path.resolve(__dirname, `${PREFIX}/${dirName}`);
 
 module.exports = {
-    '@components': createSourceAlias('components'),
-    '@api': createSourceAlias('api'),
-    '@hooks': createSourceAlias('hooks'),
-    '@utils': createSourceAlias('utils'),
-    '@hoc': createSourceAlias('hoc'),
-}
+  "@components": createSourceAlias("components"),
+  "@api": createSourceAlias("api"),
+  "@hooks": createSourceAlias("hooks"),
+  "@utils": createSourceAlias("utils"),
+  "@hoc": createSourceAlias("hoc"),
+};

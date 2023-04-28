@@ -11,8 +11,16 @@ const TitleContainer = styled.div`
 `;
 
 const TopPostersCharts: FC = () => {
-  const { data: posts, isLoading: isPostsLoading, isError: isPostsError } = usePostsQuery();
-  const { data: users, isLoading: isUsersLoading, isError: isUsersError } = useUsersQuery();
+  const {
+    data: posts,
+    isLoading: isPostsLoading,
+    isError: isPostsError,
+  } = usePostsQuery();
+  const {
+    data: users,
+    isLoading: isUsersLoading,
+    isError: isUsersError,
+  } = useUsersQuery();
   const topUsersByPosts = useMemo(() => {
     if (!posts || !users) return undefined;
 
@@ -54,8 +62,8 @@ const TopPostersCharts: FC = () => {
     });
   }, [posts, users]);
 
-  if(isPostsError || isUsersError){
-    return <ErrorComponent text="Unexpected error occured" />
+  if (isPostsError || isUsersError) {
+    return <ErrorComponent text="Unexpected error occured" />;
   }
 
   if (isPostsLoading || isUsersLoading || !topUsersByPosts) {

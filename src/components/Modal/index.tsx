@@ -29,15 +29,19 @@ const Card = styled.div`
 `;
 
 interface ModalProps {
-    onClose: () => void;
-    // React 18+ does not define children by default in FC interface ;)
-    children: ReactNode;
+  onClose: () => void;
+  // React 18+ does not define children by default in FC interface ;)
+  children: ReactNode;
 }
 
 const Modal: FC<ModalProps> = ({ children, onClose }) => {
   return (
     <Backdrop>
-      <Content><OutsideClickHandler onOutsideClick={onClose}><Card>{children}</Card></OutsideClickHandler></Content>
+      <Content>
+        <OutsideClickHandler onOutsideClick={onClose}>
+          <Card>{children}</Card>
+        </OutsideClickHandler>
+      </Content>
     </Backdrop>
   );
 };

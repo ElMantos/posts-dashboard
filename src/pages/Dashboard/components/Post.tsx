@@ -21,13 +21,12 @@ const Container = styled.div`
 
 const Post: FC<PostProps> = ({ title, body, onClick }) => {
   return (
-    // It is not a good practice to have interactive events on non-interactive elements, probably should refactor :) 
+    // It is not a good practice to have interactive events on non-interactive elements, probably should refactor :)
     <Container onClick={onClick}>
       <PostTitle>{title}</PostTitle>
       <PostBody>{body}</PostBody>
     </Container>
   );
 };
-
 
 export default Post;

@@ -33,7 +33,9 @@ const PostModal: FC<PostModalProps> = ({
     return (
       <>
         <PostTitle>{title}</PostTitle>
-        <UserName><strong>Author:</strong> {user.name}</UserName>
+        <UserName>
+          <strong>Author:</strong> {user.name}
+        </UserName>
         <PostBody>{body}</PostBody>
       </>
     );
