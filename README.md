@@ -42,3 +42,4 @@
 # Things to keep in mind while using dashboard...
 
 - After typing into autocomplete input, there is .5sec debounce to prevent API throttling. This is done to simulate real-life search input with bigger datasets that cannot be received in one request due to size or how long it would take for request to go through. However, the provided API will not find user if only some part of the name is provided and it may look like a bug, but its not - it has to be full name.
+- Sorry about poor desing :D
