@@ -7,6 +7,7 @@ import { Post as IPost } from "@api/posts/types";
 
 import Post from "./components/Post";
 import PostModal from './components/PostModal';
+import TopPostersByCharts from './components/TopPostersChart';
 
 import usePostsQuery from "./hooks/usePostsQuery";
 import useUsersQuery from "./hooks/useUsersQuery";
@@ -14,6 +15,7 @@ import makeOptionsFromUsers from "./utils/makeOptionsFromUsers";
 
 const Separator = styled.hr`
   margin-top: 48px;
+
   margin-bottom: 32px;
 `;
 
@@ -73,9 +75,11 @@ const Dashboard: FC = () => {
         placeholder="Search posts by user name"
         onChange={(nextValue) => setSelectedOption(nextValue)}
       />
-
+      <Separator />
+      <TopPostersByCharts />
       <Separator />
       <PageHeader>Posts</PageHeader>
+
 
       {renderPosts()}
     </Container></>

@@ -7,7 +7,7 @@ interface UseGetPostsQueryArgs {
   userId?: number;
 }
 
-const usePostsQuery = ({ userId }: UseGetPostsQueryArgs) => {
+const usePostsQuery = ({ userId }: UseGetPostsQueryArgs = {}) => {
   const { data, isLoading, isError } = useQuery(keys.getPosts({ userId }), () =>
     getPosts({ userId })
   );

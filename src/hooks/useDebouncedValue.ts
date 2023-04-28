@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import useMounted from "./useMounted";
 
+// There are hook libraries for debounce, I just wanted to show how I would implement that myself
 const useDebouncedValue = (value: string, debounceTime: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   const isMounted = useMounted();

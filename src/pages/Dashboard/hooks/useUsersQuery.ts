@@ -4,10 +4,10 @@ import { keys, getUsers } from "@api/users";
 import { extractAPIData } from "@utils";
 
 interface UseGetUsersQueryArgs {
-  name: string;
+  name?: string;
 }
 
-const useUsersQuery = ({ name }: UseGetUsersQueryArgs) => {
+const useUsersQuery = ({ name }: UseGetUsersQueryArgs = {}) => {
   const { data, isLoading, isError } = useQuery(keys.getUsers({ name }), () =>
     getUsers({ name })
   );
