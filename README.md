@@ -37,3 +37,4 @@
 
 - standardised eslint and prettier rules
 - added pre-commit hooks to run code linter/tests
+- added commit-lint to ensure standard naming/description practices
