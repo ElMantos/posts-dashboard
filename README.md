@@ -15,7 +15,7 @@
 
 - User can see a list of posts
 - Posts can be re-ordered by draging and dropping
-- Upon clicking on post a modal will open. It will show user the name of post author,
+- Upon clicking on post a modal will open. It will show user the name of post author
 - Bar chart shows top 5 post creators
 - Button that will throw error to show how ErrorBoundary component will catch error and display custom component
 
@@ -30,10 +30,10 @@
 
 # Error handling
 
-- API error handling is done with the help of react-query hooks, rendering component level errors if they occure
+- API error handling is done with the help of react-query hooks, rendering component level errors if they occur
 - HOC `withModuledErrorBoundary` prevents application from breaking if any single feature encounters error. Other features should keep working as intended
 
-# Some other improvements could be made...
+# Some other improvements to dev experience could be made...
 
 - standardised eslint and prettier rules
 - added pre-commit hooks to run code linter/tests
