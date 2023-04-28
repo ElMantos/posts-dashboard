@@ -1,14 +1,18 @@
 import { FC, useMemo } from "react";
+import styled from "styled-components";
 
-import { BarChart, Spinner } from "@components";
+import { BarChart, Spinner, Text, Error as ErrorComponent } from "@components";
 
 import usePostsQuery from "../hooks/usePostsQuery";
 import useUsersQuery from "../hooks/useUsersQuery";
 
+const TitleContainer = styled.div`
+  margin-top: 16px;
+`;
+
 const TopPostersCharts: FC = () => {
-  const { data: posts, isLoading: isPostsLoading } = usePostsQuery();
-  const { data: users, isLoading: isUsersLoading } = useUsersQuery();
-  console.log({posts});
+  const { data: posts, isLoading: isPostsLoading, isError: isPostsError } = usePostsQuery();
+  const { data: users, isLoading: isUsersLoading, isError: isUsersError } = useUsersQuery();
   const topUsersByPosts = useMemo(() => {
     if (!posts || !users) return undefined;
 
@@ -33,36 +37,39 @@ const TopPostersCharts: FC = () => {
         return 1;
       })
       .slice(0, 5);
-    console.log({ topPostsByUser });
 
-    return topPostsByUser.map(
-      ([userId, postsAmount]) => {
-        const user = users.find(({ id }) => id === Number(userId));
+    return topPostsByUser.map(([userId, postsAmount]) => {
+      const user = users.find(({ id }) => id === Number(userId));
 
-        if (!user) {
-          throw new Error(
-            "<TopPostersCharts /> could not find user with provided ID"
-          );
-        }
-
-        return {
-          value: postsAmount,
-          label: user.name,
-        };
+      if (!user) {
+        throw new Error(
+          "<TopPostersCharts /> could not find user with provided ID"
+        );
       }
-    );
+
+      return {
+        value: postsAmount,
+        label: user.name,
+      };
+    });
   }, [posts, users]);
 
-  console.log({ topUsersByPosts });
+  if(isPostsError || isUsersError){
+    return <ErrorComponent text="Unexpected error occured" />
+  }
 
-
-  if(isPostsLoading || isUsersLoading || !topUsersByPosts){
-    return <Spinner />
+  if (isPostsLoading || isUsersLoading || !topUsersByPosts) {
+    return <Spinner />;
   }
 
   return (
-    <BarChart data={topUsersByPosts} />
-  )
+    <>
+      <TitleContainer>
+        <Text fontSize="20px">Top 5 posters: </Text>
+      </TitleContainer>
+      <BarChart data={topUsersByPosts} />
+    </>
+  );
 };
 
 export default TopPostersCharts;

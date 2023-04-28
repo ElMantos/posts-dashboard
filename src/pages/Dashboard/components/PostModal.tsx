@@ -23,7 +23,7 @@ const PostModal: FC<PostModalProps> = ({
   post: { userId, title, body },
   onClose,
 }) => {
-  const { data: user, isLoading, isError } = useUserQuery({ userId });
+  const { data: user, isLoading } = useUserQuery({ userId });
 
   const renderContent = () => {
     if (isLoading || !user) {

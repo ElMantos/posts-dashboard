@@ -11,7 +11,6 @@ interface PostProps {
 }
 
 const Container = styled.div`
-  width: 100%;
   padding: 0px 32px;
   border: 1px solid #c0d6fa;
   background-color: #e6efff;

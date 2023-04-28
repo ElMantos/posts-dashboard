@@ -69,9 +69,9 @@ const Autocomplete: FC<AutocompleteProps> = ({
         {isFocused && (
           <List>
             {/* Its not a good practice to add click events to non-interactive elements, would be best to refactor ;) */}
-            {options.map(({ value, label }) => (
+            {options.map(({ value, label }, index) => (
               <ListItem
-                key={value}
+                key={index}
                 onClick={() => {
                   onChange({value, label});
                   setIsFocused(false);

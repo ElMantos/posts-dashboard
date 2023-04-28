@@ -8,5 +8,6 @@ module.exports = {
     '@components': createSourceAlias('components'),
     '@api': createSourceAlias('api'),
     '@hooks': createSourceAlias('hooks'),
-    '@utils': createSourceAlias('utils')
+    '@utils': createSourceAlias('utils'),
+    '@hoc': createSourceAlias('hoc'),
 }
