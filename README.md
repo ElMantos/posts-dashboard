@@ -32,3 +32,8 @@
 
 - API error handling is done with the help of react-query hooks, rendering component level errors if they occure
 - HOC `withModuledErrorBoundary` prevents application from breaking if any single feature encounters error. Other features should keep working as intended
+
+# Some other improvements could be made...
+
+- standardised eslint and prettier rules
+- added pre-commit hooks to run code linter/tests
